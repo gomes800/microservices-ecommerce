@@ -1,4 +1,16 @@
+server:
+  port: 8081
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://discovery-server:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true
+
 spring:
+  application:
+    name: catalog-service
   datasource:
     url: jdbc:postgresql://postgres:5432/catalogdb
     username: postgres
