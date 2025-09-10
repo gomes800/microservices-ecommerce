@@ -12,7 +12,7 @@ spring:
   application:
     name: catalog-service
   datasource:
-    url: jdbc:postgresql://postgres:5432/catalogdb
+    url: jdbc:postgresql://postgres:5432/ecommerce
     username: postgres
     password: 12345
   jpa:
@@ -21,5 +21,6 @@ spring:
     show-sql: true
     properties:
       hibernate:
+        default_schema: catalog
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true

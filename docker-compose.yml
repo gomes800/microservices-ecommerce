@@ -6,13 +6,14 @@ services:
     environment:
       POSTGRES_USER: ${DB_USER:-postgres}
       POSTGRES_PASSWORD: ${DB_PASSWORD:-12345}
-      POSTGRES_DB: catalogdb
+      POSTGRES_DB: ecommerce
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     healthcheck:
-      test: [ "CMD-SHELL", "pg_isready -U postgres -d catalogdb" ]
+      test: [ "CMD-SHELL", "pg_isready -U postgres -d ecommerce" ]
       interval: 5s
       timeout: 5s
       retries: 10
@@ -65,7 +66,7 @@ services:
     ports:
       - "8081:8081"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/catalogdb
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/ecommerce
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: 12345
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
