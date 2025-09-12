@@ -3,12 +3,12 @@ package com.gom.order_service.dto;
 public class OrderCreatedEvent {
     private Long orderId;
     private Long productId;
-    private Long quantity;
+    private Integer quantity;
     private String status;
 
     public OrderCreatedEvent() {}
 
-    public OrderCreatedEvent(Long orderId, Long productId, Long quantity, String status) {
+    public OrderCreatedEvent(Long orderId, Long productId, Integer quantity, String status) {
         this.orderId = orderId;
         this.productId = productId;
         this.quantity = quantity;
@@ -31,11 +31,11 @@ public class OrderCreatedEvent {
         this.productId = productId;
     }
 
-    public Long getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Long quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 

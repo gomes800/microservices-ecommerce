@@ -6,6 +6,8 @@ import com.gom.order_service.model.Order;
 import com.gom.order_service.repositories.OrderRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class OrderService {
 
@@ -15,6 +17,10 @@ public class OrderService {
     public OrderService(OrderRepository orderRepository, OrderProducer orderProducer) {
         this.orderRepository = orderRepository;
         this.orderProducer = orderProducer;
+    }
+
+    public List<Order> getOrders() {
+        return orderRepository.findAll();
     }
 
     public Order createOrder(Order order) {

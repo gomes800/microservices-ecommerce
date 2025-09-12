@@ -1,35 +1,26 @@
-package com.gom.order_service.model;
+package com.gom.catalog_service.dto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
-@Entity
-public class Order {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class OrderCreatedEvent {
+    private Long orderId;
     private Long productId;
     private Integer quantity;
     private String status;
 
-    public Order() {}
+    public OrderCreatedEvent() {}
 
-    public Order(Long id, Long productId, Integer quantity, String status) {
-        this.id = id;
+    public OrderCreatedEvent(Long orderId, Long productId, Integer quantity, String status) {
+        this.orderId = orderId;
         this.productId = productId;
         this.quantity = quantity;
         this.status = status;
     }
 
-    public Long getId() {
-        return id;
+    public Long getOrderId() {
+        return orderId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
     }
 
     public Long getProductId() {
